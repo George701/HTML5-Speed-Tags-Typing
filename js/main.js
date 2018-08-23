@@ -29,14 +29,29 @@ const seconds = document.querySelector('#seconds');
 const level = document.querySelector('#level');
 
 
+function setLevel(time){
+    switch(level.value){
+        case 'easy':
+            console.log('lvl: ', 'easy');
+            time = levels.easy; //5
+            break;
+        case 'medium':
+            console.log('lvl: ', 'medium');
+            time = levels.medium; //3
+            break;
+        case 'hard':
+            console.log('lvl: ', 'hard');
+            time = levels.hard; //2
+            break;
+        default:
+            console.log('lvl: ', 'error');
+    }
+}
+
 
 // Initialize Game
 function init(){
     console.log('---','init');
-
-    // Level initialization
-    // let currentLevel = changeLevel();
-    // let time = currentLevel;
 
     seconds.innerHTML = time;
     timeDisplay.innerHTML = time;
@@ -77,6 +92,7 @@ function countdown(){
         // Game is over
         isPlaying = false;
     }
+    setLevel();
     // Show time
     timeDisplay.innerHTML = time;
 }
@@ -94,7 +110,7 @@ function startMatch(){
     if(matchWords()){
         console.log('match!');
         isPlaying = true;
-        time = currentLevel + 1;
+        time = time + 1;
         showWord(tags);
         wordInput.value = '';
         score++;
@@ -118,26 +134,6 @@ function matchWords(){
         return false;
     }
 }
-
-// Change level
-// function changeLevel(){
-//     switch(level.value){
-//         case 'easy':
-//             console.log('lvl: ', 'easy');
-//             return levels.easy; //5
-//             break;
-//         case 'medium':
-//             console.log('lvl: ', 'medium');
-//             return levels.medium; //3
-//             break;
-//         case 'hard':
-//             console.log('lvl: ', 'hard');
-//             return levels.hard; //2
-//             break;
-//         default:
-//             console.log('lvl: ', 'error');
-//     }
-// }
 
 const tags = [
     '!DOCTYPE',

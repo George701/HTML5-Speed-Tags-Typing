@@ -1,0 +1,19 @@
+{
+  "name": "html5-speed-tags-typing",
+  "version": "1.0.0",
+  "description": "Simple typing game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/George701/HTML5-Speed-Tags-Typing.git"
+  },
+  "author": "Georgii Chernikov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/George701/HTML5-Speed-Tags-Typing/issues"
+  },
+  "homepage": "https://github.com/George701/HTML5-Speed-Tags-Typing#readme"
+}
