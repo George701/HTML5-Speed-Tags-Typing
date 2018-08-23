@@ -29,29 +29,14 @@ const seconds = document.querySelector('#seconds');
 const level = document.querySelector('#level');
 
 
-function setLevel(time){
-    switch(level.value){
-        case 'easy':
-            console.log('lvl: ', 'easy');
-            time = levels.easy; //5
-            break;
-        case 'medium':
-            console.log('lvl: ', 'medium');
-            time = levels.medium; //3
-            break;
-        case 'hard':
-            console.log('lvl: ', 'hard');
-            time = levels.hard; //2
-            break;
-        default:
-            console.log('lvl: ', 'error');
-    }
-}
-
 
 // Initialize Game
 function init(){
     console.log('---','init');
+
+    // Level initialization
+    // let currentLevel = changeLevel();
+    // let time = currentLevel;
 
     seconds.innerHTML = time;
     timeDisplay.innerHTML = time;
@@ -67,8 +52,6 @@ function init(){
     setInterval(countdown, 1000);
     // Check game status
     setInterval(checkStatus, 50);
-
-    console.log(level.value);
 }
 
 // Pick & show random word
@@ -92,7 +75,6 @@ function countdown(){
         // Game is over
         isPlaying = false;
     }
-    setLevel();
     // Show time
     timeDisplay.innerHTML = time;
 }
@@ -110,7 +92,7 @@ function startMatch(){
     if(matchWords()){
         console.log('match!');
         isPlaying = true;
-        time = time + 1;
+        time = currentLevel + 1;
         showWord(tags);
         wordInput.value = '';
         score++;
